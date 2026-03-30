@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBT Esai — PBO & RPL</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">CBT</div>
+    <div>
+      <div class="logo-text">CBT Esai — Penilaian Otomatis</div>
+      <div class="logo-sub">Cosine Similarity · TF-IDF · Keyword Detection</div>
+    </div>
+  </div>
+  <div class="header-stats">
+    <div class="stat-item">
+      <div class="stat-val" id="global-answered">0</div>
+      <div class="stat-label">Dijawab</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val" id="global-avg">—</div>
+      <div class="stat-label">Rata-rata</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">14</div>
+      <div class="stat-label">Total Soal</div>
+    </div>
+  </div>
+</header>
+
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <button class="tab active-pbo" onclick="switchTab('pbo')">
+      PBO <span class="tab-count">7 soal</span>
+    </button>
+    <button class="tab" onclick="switchTab('rpl')">
+      RPL <span class="tab-count">7 soal</span>
+    </button>
+  </div>
+</div>
+
+<main>
+  <div class="info-banner">
+    <div class="info-dot"></div>
+    <span>Ketik jawabanmu — skor dihitung otomatis menggunakan algoritma <strong>Cosine Similarity</strong> berbasis TF-IDF. Kata kunci yang ditemukan akan berwarna hijau.</span>
+  </div>
+
+  <!-- PBO Panel -->
+  <div class="panel active" id="panel-pbo">
+    <div id="cards-pbo"></div>
+    <div class="summary-section">
+      <div class="summary-title">Ringkasan Skor — PBO</div>
+      <div class="summary-grid" id="summary-pbo"></div>
+      <div class="legend" style="margin-top:14px">
+        <div class="legend-item"><div class="legend-dot" style="background:#3fb950"></div> ≥ 0.70 Baik</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#d29922"></div> 0.40–0.69 Cukup</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f85149"></div> &lt; 0.40 Perlu diperbaiki</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RPL Panel -->
+  <div class="panel" id="panel-rpl">
+    <div id="cards-rpl"></div>
+    <div class="summary-section">
+      <div class="summary-title">Ringkasan Skor — RPL</div>
+      <div class="summary-grid" id="summary-rpl"></div>
+      <div class="legend" style="margin-top:14px">
+        <div class="legend-item"><div class="legend-dot" style="background:#3fb950"></div> ≥ 0.70 Baik</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#d29922"></div> 0.40–0.69 Cukup</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f85149"></div> &lt; 0.40 Perlu diperbaiki</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
